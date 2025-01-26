@@ -42,6 +42,15 @@ INSTALLED_APPS = [
     "rest_framework"
 ]
 
+REST_FRAMEWORKS = {
+    "DEFAULT_AUTHENTICATION_CLASSES" :[
+        "rest_framework.authentication.BasicAuthentication"
+    ],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly"
+    ]
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -121,7 +130,8 @@ MEDIA_URL = "/media/"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
